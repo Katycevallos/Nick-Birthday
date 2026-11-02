@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nick is Almost 30! - Treasure Reveal</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Canvas Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mint: {
+                            50: '#f2fcfb',
+                            100: '#e0f7f6',
+                            200: '#b8eeeb',
+                            300: '#85e0dc',
+                            800: '#0f524e',
+                            900: '#093634',
+                        },
+                        sketch: '#0d3834'
+                    },
+                    fontFamily: {
+                        handwriting: ['Caveat', 'cursive'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Doodle / Hand-drawn border effects */
+        .sketch-border {
+            border: 3px solid #0d3834;
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+        }
+
+        .sketch-button {
+            border: 3px solid #0d3834;
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 4px 4px 0px #0d3834;
+        }
+
+        .sketch-button:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px #0d3834;
+        }
+
+        .sketch-button:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px #0d3834;
+        }
+
+        /* Float animation for decorative sparkles */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(5deg); }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+
+        .bulb-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-mint-100 text-sketch font-sans min-h-screen flex flex-col justify-between selection:bg-mint-300 selection:text-sketch overflow-x-hidden">
+
+    <!-- Decorative Top Sparkles -->
+    <div class="absolute top-6 left-6 md:top-10 md:left-12 pointer-events-none floating">
+        <svg class="w-10 h-10 text-sketch opacity-80" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
+        </svg>
+    </div>
+    <div class="absolute top-12 right-8 md:top-16 md:right-16 pointer-events-none floating" style="animation-delay: 1s;">
+        <svg class="w-8 h-8 text-sketch opacity-80" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
+        </svg>
+    </div>
+
+    <!-- Main Container -->
+    <main class="container mx-auto px-4 py-8 md:py-12 max-w-4xl flex-grow flex flex-col items-center justify-center text-center relative z-10">
+        
+        <!-- Header Section -->
+        <header class="mb-6">
+            <span class="inline-block px-4 py-1.5 bg-mint-200 sketch-border text-sm md:text-base font-bold tracking-wider uppercase mb-3 transform -rotate-2">
+                Special Celebration
+            </span>
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-2">
+                Nick is almost 30!
+            </h1>
+            <p class="font-handwriting text-3xl md:text-4xl text-mint-800 font-bold">
+                Welcome to the treasure
+            </p>
+        </header>
+
+        <!-- Main Character & Lightbulb Doodle Illustration -->
+        <div class="relative my-4 w-64 h-64 md:w-80 md:h-80 flex items-center justify-center">
+            <svg class="w-full h-full text-sketch" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Lightbulb rays -->
+                <g class="bulb-glow" stroke="currentColor" stroke-width="4" stroke-linecap="round">
+                    <line x1="200" y1="30" x2="200" y2="15" />
+                    <line x1="145" y1="45" x2="135" y2="33" />
+                    <line x1="255" y1="45" x2="265" y2="33" />
+                    <line x1="110" y1="85" x2="95" y2="80" />
+                    <line x1="290" y1="85" x2="305" y2="80" />
+                    <line x1="100" y1="135" x2="85" y2="140" />
+                    <line x1="300" y1="135" x2="315" y2="140" />
+                </g>
+
+                <!-- Lightbulb -->
+                <path d="M170 140 C160 110 170 70 200 70 C230 70 240 110 230 140 C225 155 215 165 215 175 L185 175 C185 165 175 155 170 140 Z" stroke="currentColor" stroke-width="5" fill="#fef08a" stroke-linejoin="round"/>
+                <path d="M188 175 L212 175 M190 182 L210 182 M193 189 L207 189" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                <!-- Filament -->
+                <path d="M192 140 L197 115 L203 115 L208 140" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+                <!-- Left Star -->
+                <path d="M60 130 L70 145 L90 140 L75 155 L82 175 L65 162 L48 175 L55 155 L40 140 L60 145 Z" fill="currentColor" />
+                <!-- Right Star -->
+                <path d="M310 110 L316 122 L330 118 L319 130 L324 145 L311 135 L298 145 L303 130 L292 118 L306 122 Z" fill="currentColor" />
+                <!-- Sparkle diamond left -->
+                <path d="M115 75 L120 85 L115 95 L110 85 Z" fill="none" stroke="currentColor" stroke-width="3"/>
+                <!-- Sparkle diamond right -->
+                <path d="M335 155 L343 170 L335 185 L327 170 Z" fill="none" stroke="currentColor" stroke-width="3"/>
+
+                <!-- Character: Head & Smile -->
+                <circle cx="200" cy="205" r="32" stroke="currentColor" stroke-width="5" fill="#e0f7f6" />
+                <!-- Hair -->
+                <path d="M172 195 C175 175 225 175 228 195 C220 180 180 180 172 195 Z" fill="currentColor" />
+                <!-- Face features -->
+                <circle cx="188" cy="202" r="3" fill="currentColor" />
+                <circle cx="212" cy="202" r="3" fill="currentColor" />
+                <path d="M190 215 Q200 225 210 215" stroke="currentColor" stroke-width="4" stroke-linecap="round" fill="none"/>
+                <!-- Ears -->
+                <circle cx="167" cy="205" r="5" stroke="currentColor" stroke-width="3" fill="#e0f7f6"/>
+                <circle cx="233" cy="205" r="5" stroke="currentColor" stroke-width="3" fill="#e0f7f6"/>
+
+                <!-- Pointing Arm (Left in viewer's perspective) -->
+                <path d="M165 260 C120 250 100 170 125 120 C130 110 138 120 132 130 C120 155 130 200 155 235" stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none"/>
+                <!-- Hand pointing index finger -->
+                <path d="M125 120 C122 100 130 95 135 105 C140 115 138 135 138 135" stroke="currentColor" stroke-width="4" stroke-linecap="round" fill="none"/>
+
+                <!-- Body / Shirt outline -->
+                <path d="M150 245 Q200 235 250 245 C280 260 340 300 320 370 C270 380 130 380 80 370 C60 300 120 260 150 245 Z" stroke="currentColor" stroke-width="5" fill="#e0f7f6"/>
+
+                <!-- Right Arm resting on hip -->
+                <path d="M250 245 C290 265 315 300 280 345 C260 370 240 330 245 310" stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none"/>
+            </svg>
+        </div>
+
+        <!-- Interactive Trigger Section -->
+        <div class="mt-4 mb-8 w-full max-w-md">
+            <button id="findVideoBtn" class="sketch-button bg-white text-sketch font-bold text-xl md:text-2xl py-4 px-8 w-full flex items-center justify-center gap-3 group">
+                <svg class="w-7 h-7 text-red-500 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                </svg>
+                <span>Find your video here</span>
+            </button>
+        </div>
+
+        <!-- YOU WON Celebration Banner & Prizes -->
+        <div class="w-full space-y-6">
+            
+            <!-- Hero Announcement Card -->
+            <div class="bg-white p-6 md:p-8 sketch-border shadow-lg transform rotate-1 hover:rotate-0 transition-transform">
+                <h2 class="font-handwriting text-5xl md:text-7xl font-extrabold text-red-500 tracking-wider mb-2 animate-bounce">
+                    YOU WON!!!!
+                </h2>
+                <p class="text-sketch text-lg md:text-xl font-bold uppercase tracking-wide border-b-2 border-sketch/20 pb-4">
+                    Your Official Birthday Prize Package
+                </p>
+
+                <!-- Prizes List -->
+                <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
+                    
+                    <!-- Prize 1 -->
+                    <div class="bg-mint-50 p-5 sketch-border flex items-start gap-4 transform -rotate-1 hover:rotate-0 transition-transform">
+                        <div class="bg-mint-200 p-3 rounded-full border-2 border-sketch flex-shrink-0">
+                            <svg class="w-7 h-7 text-sketch" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 001 1.71l.7.7a2 2 0 010 2.83l-.7.7A2 2 0 003 17v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 00-1-1.71l-.7-.7a2 2 0 010-2.83l.7-.7A2 2 0 0021 10V7a2 2 0 00-2-2H5z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-mint-800">Prize #1</span>
+                            <h3 class="text-xl font-bold leading-tight mt-0.5">A ticket for the escape room experience</h3>
+                            <p class="text-sm text-gray-700 mt-1">Get ready to solve puzzles and break out!</p>
+                        </div>
+                    </div>
+
+                    <!-- Prize 2 -->
+                    <div class="bg-mint-50 p-5 sketch-border flex items-start gap-4 transform rotate-1 hover:rotate-0 transition-transform">
+                        <div class="bg-mint-200 p-3 rounded-full border-2 border-sketch flex-shrink-0">
+                            <!-- Steak / Dinner Icon -->
+                            <svg class="w-7 h-7 text-sketch" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-mint-800">Prize #2</span>
+                            <h3 class="text-xl font-bold leading-tight mt-0.5">Dinner after the escape room</h3>
+                            <p class="font-handwriting text-xl text-mint-900 font-bold mt-1">We can have a big steak!</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-6 text-center text-sm font-bold text-mint-800 opacity-80">
+        <p>Made with 🎉 for Nick's 30th Birthday</p>
+    </footer>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="fixed inset-0 bg-sketch/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-2xl sketch-border p-4 md:p-6 relative transform scale-95 transition-transform duration-300" id="modalCard">
+            
+            <!-- Close Button -->
+            <button id="closeModalBtn" class="absolute -top-4 -right-4 bg-white text-sketch p-2 rounded-full sketch-border hover:bg-mint-100 transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+
+            <h3 class="text-2xl font-bold mb-4 text-sketch text-center">🎬 Birthday Video Message</h3>
+            
+            <!-- Responsive Video Container -->
+            <div class="relative w-full overflow-hidden rounded-xl bg-black border-2 border-sketch" style="padding-top: 56.25%;">
+                <!-- Default YouTube embed (replace URL with your custom video link anytime) -->
+                <iframe 
+                    id="videoIframe"
+                    class="absolute top-0 left-0 w-full h-full"
+                    src="https://youtube.com/shorts/nPWuydM02iw?feature=share" 
+                    title="Birthday Video"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <p class="text-center text-sm text-gray-600 mt-4 font-medium">
+                Tip: You can edit the iframe URL in your <code>index.html</code> to link to your custom video!
+            </p>
+        </div>
+    </div>
+
+    <!-- Interactive Script -->
+    <script>
+        // Trigger celebration confetti on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            triggerConfetti();
+        });
+
+        // Confetti explosion function
+        function triggerConfetti() {
+            var count = 200;
+            var defaults = {
+                origin: { y: 0.7 },
+                colors: ['#0d3834', '#85e0dc', '#fef08a', '#ef4444']
+            };
+
+            function fire(particleRatio, opts) {
+                confetti(Object.assign({}, defaults, opts, {
+                    particleCount: Math.floor(count * particleRatio)
+                }));
+            }
+
+            fire(0.25, { spread: 26, startVelocity: 55 });
+            fire(0.2, { spread: 60 });
+            fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8 });
+            fire(0.1, { spread: 120, startVelocity: 25, decay: 0.92, scalar: 1.2 });
+            fire(0.1, { spread: 120, startVelocity: 45 });
+        }
+
+        // Modal Logic
+        const findVideoBtn = document.getElementById('findVideoBtn');
+        const videoModal = document.getElementById('videoModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const modalCard = document.getElementById('modalCard');
+        const videoIframe = document.getElementById('videoIframe');
+
+        findVideoBtn.addEventListener('click', () => {
+            videoModal.classList.remove('hidden');
+            setTimeout(() => {
+                modalCard.classList.remove('scale-95');
+                modalCard.classList.add('scale-100');
+            }, 10);
+            triggerConfetti();
+        });
+
+        function closeModal() {
+            modalCard.classList.remove('scale-100');
+            modalCard.classList.add('scale-95');
+            setTimeout(() => {
+                videoModal.classList.add('hidden');
+                // Stop video playback by resetting src
+                const currentSrc = videoIframe.src;
+                videoIframe.src = '';
+                videoIframe.src = currentSrc;
+            }, 200);
+        }
+
+        closeModalBtn.addEventListener('click', closeModal);
+
+        // Close on clicking backdrop
+        videoModal.addEventListener('click', (e) => {
+            if (e.target === videoModal) {
+                closeModal();
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !videoModal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
